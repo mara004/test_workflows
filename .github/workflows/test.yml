@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2023 geisserml <geisserml@gmail.com>
+# SPDX-License-Identifier: Apache-2.0 OR BSD-3-Clause
+
+name: Test
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        type: string
+        default: ubuntu-latest
+
+jobs:
+  test:
+    runs-on: ${{ inputs.runner }}
+    steps:
+      - name: Test
+        run: python -c "import getpass; print(getpass.getuser())"
